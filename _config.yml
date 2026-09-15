@@ -1,0 +1,19 @@
+title: MARINA Dataset
+description: A labeled maritime acoustic dataset.
+url: ""
+baseurl: ""
+
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - tailwind.config.js
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

@@ -1,0 +1,31 @@
+# ==================================================
+# SITE-WIDE BRANDING, CALL TO ACTION, AND NAVIGATION
+# ==================================================
+
+brand:
+  logo:
+    src_reversed: "/assets/images/marina-logo-light.svg"
+    src: "/assets/images/marina-logo.svg"
+    alt: MARINA
+
+cta:
+  button:
+    label: Get the data
+    url: "#request"
+
+# These links populate both the homepage navigation tiles and fixed header.
+# Always quote URLs beginning with # because YAML treats # as a comment.
+navigation:
+  - label: Overview
+    url: "#overview"
+  - label: Capabilities
+    url: "#capabilities"
+  - label: Releases
+    url: "#releases"
+  - label: Request access
+    url: "#request"
+  - label: Citation
+    url: "#citation"
+
+footer:
+  organization: Kitware, Inc.
