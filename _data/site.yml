@@ -4,8 +4,8 @@
 
 brand:
   logo:
-    src_reversed: "/assets/images/marina-logo-light.svg"
-    src: "/assets/images/marina-logo.svg"
+    src_reversed: "/assets/images/logo-white.svg"
+    src: "/assets/images/logo.svg"
     alt: MARINA
 
 cta:
