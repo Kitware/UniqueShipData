@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-theme="marina">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <title>{{ page.title | default: site.title | escape }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/vendor/remixicon/remixicon.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  </head>
+  <body class="bg-navy-950 text-white">
+    <main
+      class="relative isolate flex min-h-screen flex-col overflow-hidden bg-cover text-white"
+      style="background-image: linear-gradient(90deg, rgba(3, 21, 41, 0.97) 0%, rgba(3, 30, 55, 0.88) 38%, rgba(3, 21, 41, 0.28) 72%, rgba(3, 21, 41, 0.58) 100%), linear-gradient(180deg, rgba(3, 21, 41, 0.20) 0%, rgba(3, 21, 41, 0.10) 58%, rgba(3, 21, 41, 0.82) 100%), url('{{ page.background_image | relative_url }}'); background-position: center 42%;"
+    >
+      <header class="relative z-10">
+        <div class="mx-auto flex h-20 w-full max-w-7xl items-center px-6 lg:px-8 pt-10">
+          <a href="#top" class="block shrink-0">
+            <img
+              src="{{ '/assets/images/logo-white.svg' | relative_url }}"
+              alt="UniqueShip"
+              class="h-12 w-auto"
+            >
+          </a>
+        </div>
+      </header>
+
+      <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-16 lg:px-8">
+        <div class="max-w-xl">
+          {% if page.eyebrow %}<p class="text-xs font-bold uppercase tracking-[0.22em] text-sky-300">{{ page.eyebrow | escape }}</p>{% endif %}
+          <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">{{ page.headline | escape }}</h1>
+          {% if page.text %}<p class="mt-6 max-w-lg text-base leading-7 text-white/70 sm:text-lg sm:leading-8">{{ page.text | escape }}</p>{% endif %}
+          {% if page.button %}
+          <a class="btn btn-primary mt-9 rounded-none" href="{{ page.button.url }}">
+            {% if page.button.icon %}<i class="ri-{{ page.button.icon }}" aria-hidden="true"></i>{% endif %}
+            {{ page.button.label | escape }}
+          </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <footer class="relative z-10 border-t border-white/10">
+        <div class="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-6 py-6 text-[0.65rem] uppercase tracking-[0.18em] text-white/45 lg:px-8">
+          <span>© {{ "now" | date: "%Y" }} {{ site.data.site.footer.organization | escape }}</span>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

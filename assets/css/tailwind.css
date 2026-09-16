@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply m-0 bg-navy-950 font-sans antialiased; }
+  :focus-visible { @apply outline outline-2 outline-offset-4 outline-signal; }
+}
