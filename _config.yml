@@ -1,6 +1,6 @@
-title: MARINA Dataset
-description: A labeled maritime acoustic dataset.
-url: ""
+title: UniqueShip
+description: A labeled maritime acoustic dataset coming soon.
+url: "https://uniqueshipdata.org"
 baseurl: ""
 
 exclude:
