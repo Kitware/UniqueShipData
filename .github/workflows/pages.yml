@@ -43,9 +43,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build site
-        run: |
-          npm run css:build
-          bundle exec jekyll build --baseurl "" --url "https://uniqueshipdata.org"
+        run: npm run build
         env:
           JEKYLL_ENV: production
 
