@@ -7,10 +7,10 @@ description: UniqueShip is a labeled maritime acoustic dataset for underwater ta
 background_image: "/assets/images/coming-soon-background.jpg"
 
 eyebrow: Maritime acoustic research data
-headline: UniqueShip is coming soon.
+headline: >-
+  UniqueShip: Coming to OCEANS 2026.
 text: >-
-  A labeled dataset for underwater acoustic target recognition is on the
-  horizon. Check back soon for release information, documentation, and access.
+  We will be releasing UniqueShip, a labeled dataset for underwater acoustic target recognition, on <strong class="text-white">September 22, 2026</strong>.
 
 # Remove this entire button block if a call to action is not needed yet.
 # button:

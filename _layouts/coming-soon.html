@@ -31,8 +31,8 @@
       <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-16 lg:px-8">
         <div class="max-w-xl">
           {% if page.eyebrow %}<p class="text-xs font-bold uppercase tracking-[0.22em] text-sky-300">{{ page.eyebrow | escape }}</p>{% endif %}
-          <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">{{ page.headline | escape }}</h1>
-          {% if page.text %}<p class="mt-6 max-w-lg text-base leading-7 text-white/70 sm:text-lg sm:leading-8">{{ page.text | escape }}</p>{% endif %}
+          <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl lg:pr-8">{{ page.headline | escape }}</h1>
+          {% if page.text %}<p class="mt-6 text-base leading-7 text-white/70 sm:text-lg sm:leading-8">{{ page.text }}</p>{% endif %}
           {% if page.button %}
           <a class="btn btn-primary mt-9 rounded-none" href="{{ page.button.url }}">
             {% if page.button.icon %}<i class="ri-{{ page.button.icon }}" aria-hidden="true"></i>{% endif %}
