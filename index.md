@@ -75,50 +75,22 @@ capabilities:
 releases:
   subheadline: Data releases
   headline: Current public releases
-  text: Choose a release below to download its data or review its annotations.
+  text: Check back September 22, 2026 for releases.
   items:
-    - title: Coastal vessel benchmark
-      image: "/assets/images/release-coastal-placeholder.svg"
-      image_alt: Placeholder aerial view of coastal vessel activity
-      description: A focused collection of labeled coastal traffic with acoustic and contextual metadata.
-      size: "1.9 TB"
-      views: 12 camera views
-      date: Released March 2026
-      buttons:
-        - label: Download bundle
-          url: "#request"
-          style: primary
-        - label: Annotation details
-          url: "#"
-          style: outline
-    - title: Long-range acoustic tracks
-      image: "/assets/images/release-tracks-placeholder.svg"
-      image_alt: Placeholder visualization of long-range acoustic tracks
-      description: Longer observations prepared for detection, tracking, and activity-understanding tasks.
-      size: "1.9 TB"
-      views: 12 camera views
-      date: Released March 2026
-      buttons:
-        - label: Download bundle
-          url: "#request"
-          style: primary
-        - label: Annotation details
-          url: "#"
-          style: outline
-    - title: Dense harbor activity
-      image: "/assets/images/release-harbor-placeholder.svg"
-      image_alt: Placeholder underwater view of dense harbor activity
-      description: Busy harbor scenes with overlapping vessel activity and detailed annotations.
-      size: "1.9 TB"
-      views: 12 camera views
-      date: Released March 2026
-      buttons:
-        - label: Download bundle
-          url: "#request"
-          style: primary
-        - label: Annotation details
-          url: "#"
-          style: outline
+  #  - title: Sample title
+  #    image: "/assets/images/release-coastal-placeholder.svg"
+  #    image_alt: Placeholder
+  #    description: Sample text paragraph should go here
+  #    size: "X.X TB"
+  #    views: X camera views
+  #    date: Released March 2026
+  #    buttons:
+  #      - label: Download bundle
+  #        url: "#request"
+  #        style: primary
+  #      - label: Annotation details
+  #        url: "#"
+  #        style: outline
 
 # ==================================================
 # REQUEST FORM
