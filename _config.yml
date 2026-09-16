@@ -1,0 +1,19 @@
+title: MARINA
+description: A labeled maritime acoustic dataset coming soon.
+url: ""
+baseurl: ""
+
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - tailwind.config.js
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: coming-soon
