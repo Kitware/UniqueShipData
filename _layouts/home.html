@@ -18,8 +18,8 @@ layout: default
   <div class="site-container flex flex-1 items-center pb-40 pt-10 md:pb-36">
     <div class="max-w-xl">
       {% if page.hero.subheadline %}<p class="eyebrow !text-sky-300">{{ page.hero.subheadline | escape }}</p>{% endif %}
-      <h1 class="text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">{{ page.hero.headline | escape }}</h1>
-      {% if page.hero.text %}<p class="mt-6 max-w-lg text-lg leading-8 text-white/75">{{ page.hero.text | escape }}</p>{% endif %}
+      <h1 class="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">{{ page.hero.headline | escape }}</h1>
+      {% if page.hero.text %}<p class="mt-6 text-lg leading-8 text-white/75">{{ page.hero.text | escape }}</p>{% endif %}
       {% if page.hero.buttons %}<div class="mt-9 flex flex-wrap gap-3">{% for button in page.hero.buttons %}{% if button.style == "primary" %}<a class="btn btn-primary rounded-none" href="{{ button.url }}">{{ button.label | escape }}</a>{% else %}<a class="btn btn-outline rounded-none border-white/50 text-white hover:border-white hover:bg-white hover:text-navy-950" href="{{ button.url }}">{{ button.label | escape }}</a>{% endif %}{% endfor %}</div>{% endif %}
     </div>
   </div>
