@@ -18,8 +18,8 @@ cta:
 navigation:
   - label: Overview
     url: "#overview"
-  - label: Capabilities
-    url: "#capabilities"
+  - label: The difference
+    url: "#difference"
   - label: Releases
     url: "#releases"
   - label: Request access
@@ -28,4 +28,9 @@ navigation:
     url: "#citation"
 
 footer:
+  disclaimer: >-
+    Funded by DARPA under MARINA program, contract W912CG-24-C-0020<br>
+    Disclaimer (DARPA)<br>
+    Data owned by Ocean Networks Canada and available under CC-BY 4.0<br>
+    <a class="text-secondary" href="https://www.oceannetworks.ca/data/data-policy/">https://www.oceannetworks.ca/data/data-policy/</a>
   organization: Kitware, Inc.
