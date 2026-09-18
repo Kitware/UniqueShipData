@@ -1219,6 +1219,36 @@ section[id] {
   margin-bottom: 0;
 }
 
+.alert {
+  display: grid;
+  width: 100%;
+  grid-auto-flow: row;
+  align-content: flex-start;
+  align-items: center;
+  justify-items: center;
+  gap: 1rem;
+  text-align: center;
+  border-radius: var(--rounded-box, 1rem);
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
+  padding: 1rem;
+  --tw-text-opacity: 1;
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+  --alert-bg: var(--fallback-b2,oklch(var(--b2)/1));
+  --alert-bg-mix: var(--fallback-b1,oklch(var(--b1)/1));
+  background-color: var(--alert-bg);
+}
+
+@media (min-width: 640px) {
+  .alert {
+    grid-auto-flow: column;
+    grid-template-columns: auto minmax(auto,1fr);
+    justify-items: start;
+    text-align: start;
+  }
+}
+
 .avatar.placeholder > div {
   display: flex;
   align-items: center;
@@ -3078,10 +3108,6 @@ section[id] {
   margin-bottom: 0.25rem;
 }
 
-.mb-1\.5 {
-  margin-bottom: 0.375rem;
-}
-
 .ml-auto {
   margin-left: auto;
 }
@@ -3126,6 +3152,14 @@ section[id] {
   margin-top: 2.25rem;
 }
 
+.mb-1\.5 {
+  margin-bottom: 0.375rem;
+}
+
+.mt-0\.5 {
+  margin-top: 0.125rem;
+}
+
 .block {
   display: block;
 }
@@ -3146,6 +3180,11 @@ section[id] {
   aspect-ratio: 16/9;
 }
 
+.size-10 {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 .size-4 {
   width: 1rem;
   height: 1rem;
@@ -3163,16 +3202,16 @@ section[id] {
   height: 5rem;
 }
 
-.h-24 {
-  height: 6rem;
-}
-
 .h-8 {
   height: 2rem;
 }
 
 .h-full {
   height: 100%;
+}
+
+.h-24 {
+  height: 6rem;
 }
 
 .min-h-screen {
@@ -3291,6 +3330,10 @@ section[id] {
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.items-start {
+  align-items: flex-start;
 }
 
 .items-center {
@@ -3438,21 +3481,16 @@ section[id] {
   border-color: rgb(255 255 255 / 0.1);
 }
 
-.border-white\/15 {
-  border-color: rgb(255 255 255 / 0.15);
-}
-
 .border-white\/50 {
   border-color: rgb(255 255 255 / 0.5);
 }
 
-.bg-\[\#020d1d\]\/90 {
-  background-color: rgb(2 13 29 / 0.9);
+.border-white\/15 {
+  border-color: rgb(255 255 255 / 0.15);
 }
 
-.bg-\[\#06172a\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(6 23 42 / var(--tw-bg-opacity, 1));
+.bg-\[\#020d1d\]\/90 {
+  background-color: rgb(2 13 29 / 0.9);
 }
 
 .bg-base-200 {
@@ -3463,6 +3501,10 @@ section[id] {
 .bg-navy-950 {
   --tw-bg-opacity: 1;
   background-color: rgb(3 21 41 / var(--tw-bg-opacity, 1));
+}
+
+.bg-primary\/15 {
+  background-color: var(--fallback-p,oklch(var(--p)/0.15));
 }
 
 .bg-secondary {
@@ -3481,6 +3523,11 @@ section[id] {
 
 .bg-white\/95 {
   background-color: rgb(255 255 255 / 0.95);
+}
+
+.bg-\[\#06172a\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(6 23 42 / var(--tw-bg-opacity, 1));
 }
 
 .bg-gradient-to-r {
@@ -3520,6 +3567,10 @@ section[id] {
 
 .p-7 {
   padding: 1.75rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-0 {
@@ -3579,6 +3630,11 @@ section[id] {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-3xl {
@@ -3648,10 +3704,6 @@ section[id] {
   text-transform: uppercase;
 }
 
-.leading-5 {
-  line-height: 1.25rem;
-}
-
 .leading-6 {
   line-height: 1.5rem;
 }
@@ -3676,8 +3728,8 @@ section[id] {
   line-height: 1.25;
 }
 
-.tracking-\[0\.14em\] {
-  letter-spacing: 0.14em;
+.leading-5 {
+  line-height: 1.25rem;
 }
 
 .tracking-\[0\.18em\] {
@@ -3694,6 +3746,10 @@ section[id] {
 
 .tracking-tight {
   letter-spacing: -0.025em;
+}
+
+.tracking-\[0\.14em\] {
+  letter-spacing: 0.14em;
 }
 
 .\!text-sky-300 {
@@ -3724,6 +3780,11 @@ section[id] {
 
 .text-base-content\/70 {
   color: var(--fallback-bc,oklch(var(--bc)/0.7));
+}
+
+.text-error {
+  --tw-text-opacity: 1;
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .text-navy-950 {
@@ -3765,10 +3826,6 @@ section[id] {
   color: rgb(255 255 255 / 0.45);
 }
 
-.text-white\/55 {
-  color: rgb(255 255 255 / 0.55);
-}
-
 .text-white\/60 {
   color: rgb(255 255 255 / 0.6);
 }
@@ -3783,6 +3840,10 @@ section[id] {
 
 .text-white\/75 {
   color: rgb(255 255 255 / 0.75);
+}
+
+.text-white\/55 {
+  color: rgb(255 255 255 / 0.55);
 }
 
 .opacity-0 {

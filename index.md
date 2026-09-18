@@ -117,12 +117,16 @@ request:
     - Versioned bundles and documentation
     - A defined path for support questions
   form:
-    # GitHub Pages cannot process forms itself. This should point to
-    # Formspree, Basin, a company API, or another form service.
-    action: "https://formspree.io/f/your-form-id"
+    action: "https://your-form-service.com/your-form-id"
     method: post
-
     submit_label: Request download
+    submitting_label: Sending request…
+    error_message: Something went wrong. Please try again.
+
+    success:
+      eyebrow: Request received
+      headline: Thanks for your submission
+      text: We received your request and will contact you with additional information.
 
     fields:
       - type: text
