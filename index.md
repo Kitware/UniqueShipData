@@ -71,38 +71,38 @@ releases:
   headline: Current dataset splits
   text: All splits are vessel-disjoint and include per-sample AIS metadata. Samples are 5-second clips at 20 kHz; full-length recordings are available through the codebase.
   items:
-    - title: 5 Class - Balanced (Benchmark)
+    - title: 5 Class - Balanced
       image: "/assets/images/release-coastal-placeholder.svg"
       image_alt: Placeholder
-      description: Contains the main 5 classes (Tug/Tow, Tanker, Passengership, Cargo) and balances the total audio for each class such that they are equal.
+      description: Contains the main 5 classes (Tug/Tow, Tanker, Passengership, Cargo) and balances the total audio for each class such that they are equal. Current version = 1.0
       size: "89 GB (Unzipped), 59 GB (Zipped)"
       views: 213h, 3175 vessels, 5 classes
-      date: Released March 2026
+      date: Released September 2026
       buttons:
-        - label: Download bundle
-          url: "#request"
+        - label: Download audio
+          url: "https://drive.google.com/drive/folders/1G0e-2Nhi6CWKuBRStlR8GTtcGyYiT2h6?usp=drive_link"
           target: _blank
           style: primary
-        - label: Annotation details
-          url: "#"
+        - label: Download spectrograms
+          url: "https://drive.google.com/drive/folders/1a6wLqfuBh3PMqSlZfy-IVjTfrJMtqo11?usp=sharing"
           target: _blank
-          style: outline
+          style: primary
     - title: 12 Class - 5 Hours Each
       image: "/assets/images/release-coastal-placeholder.svg"
       image_alt: Placeholder
-      description: Contains all ship classes and balances the total audio such that it is 5 hours each class.
+      description: Contains all ship classes and balances the total audio such that it is 5 hours each class. Current version = 1.0
       size: "10 GB (Unzipped), 7 GB (Zipped)"
       views: 60h, 4218 vessels, 12 classes
-      date: Released March 2026
+      date: Released September 2026
       buttons:
-        - label: Download bundle
-          url: "#request"
+        - label: Download audio
+          url: "https://drive.google.com/drive/folders/1HxV8AGh8ckZS3JehAU_gY2fuCnscX-eV?usp=drive_link"
           target: _blank
           style: primary
-        - label: Annotation details
-          url: "#"
+        - label: Download spectrograms
+          url: "https://drive.google.com/drive/folders/1xOXX4dUmtSET7Utb4gfscZp1dlPoT76e?usp=drive_link"
           target: _blank
-          style: outline
+          style: primary
 
 # ==================================================
 # REQUEST FORM
