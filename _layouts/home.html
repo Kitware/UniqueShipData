@@ -174,35 +174,13 @@ layout: default
       <form
         class="grid gap-x-4 gap-y-4 rounded-lg border border-white/10 bg-[#020d1d]/90 p-6 shadow-panel sm:grid-cols-2"
         action="{{ form.action | escape }}"
-        method="{{ form.method | default: 'post' | escape }}"
+        method="post"
+        accept-charset="UTF-8"
         data-request-form
       >
-        {% if form.access_key %}
-          <input
-            type="hidden"
-            name="access_key"
-            value="{{ form.access_key | escape }}"
-          >
-        {% endif %}
-
-        {% if form.subject %}
-          <input
-            type="hidden"
-            name="subject"
-            value="{{ form.subject | escape }}"
-          >
-        {% endif %}
-
-        <!-- Web3Forms spam honeypot -->
-        <input
-          type="checkbox"
-          name="botcheck"
-          class="hidden"
-          tabindex="-1"
-          autocomplete="off"
-        >
-
         {% for field in form.fields %}
+          {% assign field_id = "request-field-" | append: forloop.index %}
+
           {% if field.width == "half" %}
             {% assign field_width = "" %}
           {% else %}
@@ -211,23 +189,34 @@ layout: default
 
           {% if field.type == "checkbox" %}
 
-            <label class="flex cursor-pointer items-start gap-2 {{ field_width }}">
+            <label
+              class="flex cursor-pointer items-start gap-2 {{ field_width }}"
+              for="{{ field_id }}"
+            >
               <input
+                id="{{ field_id }}"
                 type="checkbox"
                 class="checkbox checkbox-primary checkbox-xs mt-0.5 rounded-sm"
                 name="{{ field.name | escape }}"
-                value="{{ field.value | default: 'yes' | escape }}"
+                value="{{ field.value | escape }}"
                 {% if field.required %}required{% endif %}
               >
 
               <span class="text-[0.65rem] leading-5 text-white/60">
                 {{ field.label | escape }}
+
+                {% if field.required %}
+                  <span class="text-primary" aria-hidden="true">*</span>
+                {% endif %}
               </span>
             </label>
 
           {% else %}
 
-            <label class="block {{ field_width }}">
+            <label
+              class="block {{ field_width }}"
+              for="{{ field_id }}"
+            >
               <span class="mb-1.5 block text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-white/55">
                 {{ field.label | escape }}
 
@@ -241,15 +230,19 @@ layout: default
                 {% when "textarea" %}
 
                   <textarea
+                    id="{{ field_id }}"
                     class="textarea textarea-bordered h-24 w-full resize-y rounded-none border-white/15 bg-[#06172a] text-xs leading-5 text-white placeholder:text-white/25 focus:border-signal"
                     name="{{ field.name | escape }}"
-                    {% if field.placeholder %}placeholder="{{ field.placeholder | escape }}"{% endif %}
+                    {% if field.placeholder %}
+                      placeholder="{{ field.placeholder | escape }}"
+                    {% endif %}
                     {% if field.required %}required{% endif %}
                   ></textarea>
 
                 {% when "select" %}
 
                   <select
+                    id="{{ field_id }}"
                     class="select select-bordered select-sm w-full rounded-none border-white/15 bg-[#06172a] text-xs text-white focus:border-signal"
                     name="{{ field.name | escape }}"
                     {% if field.required %}required{% endif %}
@@ -261,8 +254,11 @@ layout: default
                     {% endif %}
 
                     {% for option in field.options %}
-                      <option value="{{ option | escape }}">
-                        {{ option | escape }}
+                      {% assign option_label = option.label | default: option %}
+                      {% assign option_value = option.value | default: option_label %}
+
+                      <option value="{{ option_value | escape }}">
+                        {{ option_label | escape }}
                       </option>
                     {% endfor %}
                   </select>
@@ -270,11 +266,16 @@ layout: default
                 {% else %}
 
                   <input
+                    id="{{ field_id }}"
                     class="input input-bordered input-sm w-full rounded-none border-white/15 bg-[#06172a] text-xs text-white placeholder:text-white/25 focus:border-signal"
                     type="{{ field.type | default: 'text' | escape }}"
                     name="{{ field.name | escape }}"
-                    {% if field.placeholder %}placeholder="{{ field.placeholder | escape }}"{% endif %}
-                    {% if field.autocomplete %}autocomplete="{{ field.autocomplete | escape }}"{% endif %}
+                    {% if field.placeholder %}
+                      placeholder="{{ field.placeholder | escape }}"
+                    {% endif %}
+                    {% if field.autocomplete %}
+                      autocomplete="{{ field.autocomplete | escape }}"
+                    {% endif %}
                     {% if field.required %}required{% endif %}
                   >
 
@@ -289,7 +290,10 @@ layout: default
           data-form-error
           role="alert"
         >
-          {{ form.error_message | default: "Something went wrong. Please try again." | escape }}
+          {{ form.error_message
+            | default: "Something went wrong. Please try again."
+            | escape
+          }}
         </p>
 
         <button
@@ -299,7 +303,15 @@ layout: default
           data-default-label="{{ form.submit_label | escape }}"
           data-submitting-label="{{ form.submitting_label | default: 'Submitting…' | escape }}"
         >
-          {{ form.submit_label | escape }}
+          <span data-button-label>
+            {{ form.submit_label | escape }}
+          </span>
+
+          <span
+            class="loading loading-spinner loading-xs hidden"
+            data-button-spinner
+            aria-hidden="true"
+          ></span>
         </button>
       </form>
 
@@ -310,7 +322,10 @@ layout: default
         tabindex="-1"
       >
         <div class="flex size-10 items-center justify-center rounded-full bg-primary/15 text-primary">
-          <i class="ri-check-line text-xl" aria-hidden="true"></i>
+          <i
+            class="ri-check-line text-xl"
+            aria-hidden="true"
+          ></i>
         </div>
 
         <p class="mt-6 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-primary">
@@ -364,80 +379,3 @@ layout: default
     </div>
   </div>
 </section>
-
-<script>
-  document.querySelectorAll("[data-copy-button]").forEach((button) => {
-    button.addEventListener("click", async () => {
-      const container = button.closest(".relative");
-      const source = container.querySelector("[data-copy-source]");
-      const icon = button.querySelector("[data-copy-icon]");
-      const status = button.querySelector("[data-copy-status]");
-
-      try {
-        await navigator.clipboard.writeText(source.textContent);
-
-        icon.classList.remove("ri-file-copy-line");
-        icon.classList.add("ri-check-line", "animate-bounce");
-        button.classList.add("text-success");
-
-        button.setAttribute("aria-label", "Citation copied");
-        button.setAttribute("title", "Copied!");
-        status.textContent = "Citation copied to clipboard";
-
-        window.setTimeout(() => {
-          icon.classList.remove("ri-check-line", "animate-bounce");
-          icon.classList.add("ri-file-copy-line");
-          button.classList.remove("text-success");
-
-          button.setAttribute("aria-label", "Copy citation");
-          button.setAttribute("title", "Copy citation");
-          status.textContent = "";
-        }, 1600);
-      } catch (error) {
-        button.setAttribute("title", "Unable to copy");
-        status.textContent = "Unable to copy citation";
-      }
-    });
-  });
-
-  document.querySelectorAll("[data-request-form]").forEach((form) => {
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      const container = form.closest("[data-form-container]");
-      const success = container.querySelector("[data-form-success]");
-      const errorMessage = form.querySelector("[data-form-error]");
-      const submitButton = form.querySelector("[data-submit-button]");
-
-      const defaultLabel = submitButton.dataset.defaultLabel;
-      const submittingLabel = submitButton.dataset.submittingLabel;
-
-      errorMessage.classList.add("hidden");
-      submitButton.disabled = true;
-      submitButton.textContent = submittingLabel;
-
-      try {
-        const response = await fetch(form.action, {
-          method: form.method || "POST",
-          body: new FormData(form),
-          headers: {
-            Accept: "application/json"
-          }
-        });
-
-        if (!response.ok) {
-          throw new Error("Form submission failed");
-        }
-
-        form.classList.add("hidden");
-        success.classList.remove("hidden");
-        success.focus();
-        form.reset();
-      } catch (error) {
-        errorMessage.classList.remove("hidden");
-        submitButton.disabled = false;
-        submitButton.textContent = defaultLabel;
-      }
-    });
-  });
-</script>

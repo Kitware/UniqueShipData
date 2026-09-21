@@ -117,62 +117,50 @@ request:
     - Versioned bundles and documentation
     - A defined path for support questions
   form:
-    action: "https://your-form-service.com/your-form-id"
-    method: post
+    # Get "action" by inspecting your google form, searching for "action"
+    # and then copy/pasting the URL (should end in "formResponse").
+
+    action: "https://docs.google.com/forms/u/0/d/e/1FAIpQLScgdYqByeXFuj-dDJ-7_McmpmoaArhqkgZZsilMZhcHieopAA/formResponse"
+
     submit_label: Request download
-    submitting_label: Sending request…
-    error_message: Something went wrong. Please try again.
+    submitting_label: Submitting…
+    error_message: We could not send your request. Check your connection and try again.
 
     success:
       eyebrow: Request received
       headline: Thanks for your submission
-      text: We received your request and will contact you with additional information.
+      text: We have received your request and will be in touch.
 
     fields:
+      # Get "name" field by inspecting your Google form, searching for "entry."
+      # (include the period for faster searching) and copy/pasting the number.
+
       - type: text
-        name: name
+        name: entry.925008751
         label: Full name
-        width: half
-        required: true
         autocomplete: name
+        required: true
+        width: half
 
       - type: email
-        name: email
+        name: entry.2144715529
         label: Work email
-        width: half
-        required: true
         autocomplete: email
+        required: true
+        width: half
 
       - type: text
-        name: organization
+        name: entry.241770130
         label: Organization
-        width: half
         autocomplete: organization
-
-      - type: select
-        name: release
-        label: Release requested
-        width: half
-        placeholder: Select a release
-        required: true
-        options:
-          - Full dataset
-          - Training split
-          - Evaluation split
+        required: false
+        width: full
 
       - type: textarea
-        name: intended_use
-        label: Intended research use
-        width: full
-        placeholder: Describe how you plan to use the dataset.
+        name: entry.1262269016
+        label: Inquiry
         required: true
-
-      - type: checkbox
-        name: agreement
-        label: I agree to the dataset terms and conditions.
-        value: accepted
         width: full
-        required: true
 
 # ==================================================
 # CITATION AND CONTACT
