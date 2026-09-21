@@ -105,53 +105,182 @@ layout: default
   {% endif %}
 </div></section>
 
-<section id="releases" class="section-pad"><div class="site-container">
-  {% if page.releases.subheadline %}
-    <p class="eyebrow">{{ page.releases.subheadline | escape }}</p>
-  {% endif %}
-  <h2 class="section-title">{{ page.releases.headline | escape }}</h2>
-  {% if page.releases.text %}
-    <p class="mt-5 max-w-2xl text-base-content/65">{{ page.releases.text | escape }}</p>
-  {% endif %}
-  {% if page.releases.items %}
-    <div class="mt-12 space-y-10">
-      {% for release in page.releases.items %}
-        <article class="grid gap-7 md:grid-cols-[360px_1fr] md:items-center">
-          {% if release.image %}
-            <img class="aspect-[16/9] h-full w-full object-cover" src="{{ release.image | relative_url }}" alt="{{ release.image_alt | escape }}" width="640" height="360" loading="lazy">
-          {% endif %}
-          <div>
-            <h3 class="text-xl font-bold text-navy-950">{{ release.title | escape }}</h3>
-            <p class="mt-3 text-sm leading-6 text-base-content/65">{{ release.description | escape }}</p>
-            <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-base-content/55">
-              <span>
-                <i class="ri-file-line text-primary"></i>
-                {{ release.size | escape }}
-              </span>
-              <span>
-                <i class="ri-vidicon-line text-primary"></i>
-                {{ release.views | escape }}
-              </span>
-              <span>
-                <i class="ri-box-3-line text-primary"></i>
-                {{ release.date | escape }}
-              </span>
-            </div>
-            {% if release.buttons %}
-              <div class="mt-6 flex flex-wrap gap-3">
-                {% for button in release.buttons %}
-                  <a class="btn btn-sm rounded-none {% if button.style == 'primary' %}btn-primary{% else %}btn-outline{% endif %}" href="{{ button.url }}" target="{{ button.target }}">
-                    {{ button.label | escape }}
-                  </a>
-                {% endfor %}
-              </div>
+<section id="releases" class="section-pad">
+  <div class="site-container">
+    {% if page.releases.subheadline %}
+      <p class="eyebrow">{{ page.releases.subheadline | escape }}</p>
+    {% endif %}
+    <h2 class="section-title">{{ page.releases.headline | escape }}</h2>
+    {% if page.releases.text %}
+      <p class="mt-5 max-w-2xl text-base-content/65">{{ page.releases.text | escape }}</p>
+    {% endif %}
+    {% if page.releases.items %}
+      <div class="mt-12 space-y-10">
+        {% for release in page.releases.items %}
+          <article class="grid gap-7 md:grid-cols-[360px_1fr] md:items-center">
+            {% if release.image %}
+              <img class="aspect-[16/9] h-full w-full object-cover" src="{{ release.image | relative_url }}" alt="{{ release.image_alt | escape }}" width="640" height="360" loading="lazy">
             {% endif %}
+            <div>
+              <h3 class="text-xl font-bold text-navy-950">{{ release.title | escape }}</h3>
+              <p class="mt-3 text-sm leading-6 text-base-content/65">{{ release.description | escape }}</p>
+              <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-base-content/55">
+                <span>
+                  <i class="ri-file-line text-primary"></i>
+                  {{ release.size | escape }}
+                </span>
+                <span>
+                  <i class="ri-vidicon-line text-primary"></i>
+                  {{ release.views | escape }}
+                </span>
+                <span>
+                  <i class="ri-box-3-line text-primary"></i>
+                  {{ release.date | escape }}
+                </span>
+              </div>
+              {% if release.buttons %}
+                <div class="mt-6 flex flex-wrap gap-3">
+                  {% for button in release.buttons %}
+                    <a class="btn btn-sm rounded-none {% if button.style == 'primary' %}btn-primary{% else %}btn-outline{% endif %}" href="{{ button.url }}" target="{{ button.target }}">
+                      {{ button.label | escape }}
+                    </a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% if page.leaderboards %}
+<section
+  id="leaderboards"
+  class="section-pad bg-base-200"
+>
+  <div class="site-container">
+    <div class="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-16">
+
+      <!-- Section introduction -->
+      <div>
+        {% if page.leaderboards.subheadline %}
+          <p class="eyebrow">
+            {{ page.leaderboards.subheadline | escape }}
+          </p>
+        {% endif %}
+
+        <div class="flex flex-wrap items-center gap-3">
+          <h2 class="section-title">
+            {{ page.leaderboards.headline | escape }}
+          </h2>
+
+          {% if page.leaderboards.status %}
+            <span class="badge badge-primary badge-outline rounded-none text-[0.6rem] font-bold uppercase tracking-[0.14em]">
+              {{ page.leaderboards.status | escape }}
+            </span>
+          {% endif %}
+        </div>
+
+        {% if page.leaderboards.text %}
+          <p class="mt-5 max-w-lg text-sm leading-6 text-base-content/65">
+            {{ page.leaderboards.text | escape }}
+          </p>
+        {% endif %}
+
+        <div class="mt-7 flex items-start gap-3 border-t border-base-300 pt-6">
+          <i
+            class="ri-trophy-line mt-0.5 text-xl text-signal"
+            aria-hidden="true"
+          ></i>
+
+          <p class="max-w-md text-xs leading-5 text-base-content/55">
+            Evaluation criteria and submission instructions are
+            currently being developed.
+          </p>
+        </div>
+      </div>
+
+      <!-- Leaderboard preview -->
+      <div class="relative overflow-hidden border border-base-300 bg-white">
+        <div class="flex items-center justify-between border-b border-base-300 px-5 py-4">
+          <div class="flex items-center gap-2">
+            <i
+              class="ri-bar-chart-box-line text-lg text-ocean"
+              aria-hidden="true"
+            ></i>
+
+            <span class="text-xs font-bold uppercase tracking-[0.14em] text-navy-950">
+              Results preview
+            </span>
           </div>
-        </article>
-      {% endfor %}
+
+          <span class="inline-flex items-center gap-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-base-content/40">
+            <span class="size-1.5 rounded-full bg-signal"></span>
+            In development
+          </span>
+        </div>
+
+        <div class="overflow-x-auto" aria-hidden="true">
+          <table class="w-full min-w-[580px] border-collapse">
+            <thead>
+              <tr class="border-b border-base-300 bg-base-200/60">
+                {% for column in page.leaderboards.preview.columns %}
+                  <th class="px-5 py-3 text-left text-[0.6rem] font-bold uppercase tracking-[0.14em] text-base-content/45">
+                    {{ column | escape }}
+                  </th>
+                {% endfor %}
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for row in (1..page.leaderboards.preview.rows) %}
+                <tr class="border-b border-base-300 last:border-b-0">
+                  <td class="px-5 py-4">
+                    <span class="block h-3 w-5 animate-pulse bg-base-300"></span>
+                  </td>
+
+                  <td class="px-5 py-4">
+                    <span class="block h-3 w-28 animate-pulse bg-base-300"></span>
+                  </td>
+
+                  <td class="px-5 py-4">
+                    <span class="block h-3 w-20 animate-pulse bg-base-300"></span>
+                  </td>
+
+                  <td class="px-5 py-4">
+                    <span class="block h-3 w-12 animate-pulse bg-base-300"></span>
+                  </td>
+
+                  <td class="px-5 py-4">
+                    <span class="block h-3 w-16 animate-pulse bg-base-300"></span>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Overlay keeps the preview from looking interactive -->
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 top-[53px] flex items-center justify-center bg-white/45 backdrop-blur-[1px]">
+          <div class="border border-base-300 bg-white px-6 py-4 text-center shadow-sm">
+            <i
+              class="ri-trophy-line text-2xl text-signal"
+              aria-hidden="true"
+            ></i>
+
+            <p class="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-navy-950">
+              Rankings coming soon
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
-  {% endif %}
-</div></section>
+  </div>
+</section>
+{% endif %}
 
 <section id="request" class="bg-gradient-to-r from-navy-950 to-navy-800 text-white">
   <div class="mx-auto grid w-full max-w-5xl gap-12 px-6 py-20 md:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16 lg:px-8">

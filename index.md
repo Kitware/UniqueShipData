@@ -105,6 +105,27 @@ releases:
           style: primary
 
 # ==================================================
+# LEADERBOARDS
+# ==================================================
+leaderboards:
+  subheadline: Benchmark results
+  headline: Leaderboards
+  status: Coming soon
+  text: >-
+    Compare published results across the UniqueShip dataset splits.
+    Rankings, evaluation metrics, and submission guidance will be
+    available following the dataset release.
+
+  preview:
+    columns:
+      - Rank
+      - Submission
+      - Dataset split
+      - Score
+      - Updated
+    rows: 4
+
+# ==================================================
 # REQUEST FORM
 # ==================================================
 request:
