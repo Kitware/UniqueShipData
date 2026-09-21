@@ -511,7 +511,7 @@ layout: default
         <h3 class="font-bold">{{ page.citation.contact.headline | escape }}</h3>
         <p class="mt-1 text-sm text-white/75">{{ page.citation.contact.text | escape }}</p>
       </div>
-      <a class="btn btn-primary btn-sm shrink-0 rounded-none" href="mailto:{{ page.citation.contact.email }}">{{ page.citation.contact.button_label | escape }}</a>
+      <a class="btn btn-primary btn-sm shrink-0 rounded-none" href="{{ page.citation.contact.url }}" target="_blank">{{ page.citation.contact.button_label | escape }}</a>
     </div>
   </div>
 </section>

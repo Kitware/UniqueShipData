@@ -202,6 +202,6 @@ citation:
     headline: Questions, corrections, or collaboration?
     text: Our team can help with access and research partnerships.
     button_label: Contact the team
-    email: data@example.org
+    url: "https://www.kitware.com/contact/"
 
 ---
