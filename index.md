@@ -9,7 +9,7 @@ description: A large labeled dataset for underwater acoustic target recognition.
 # ==================================================
 hero:
   # Replace this path with the final hero image in assets/images.
-  background_image: "/assets/images/hero-placeholder.svg"
+  background_image: "/assets/images/coming-soon-background.jpg"
   subheadline: Open benchmark · Underwater Acoustics
   headline: >-
     <strong>UniqueShip:</strong> Large, public underwater acoustic target recognition (UATR) datasets for ships
