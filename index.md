@@ -25,6 +25,7 @@ hero:
 
 # ==================================================
 # OVERVIEW
+# Button styles: primary or outline
 # ==================================================
 overview:
   subheadline: Overview
@@ -32,6 +33,16 @@ overview:
   paragraphs:
     - >-
       UniqueShip pairs hydrophone recordings from seven ONC deployments in the Strait of Georgia (May 2016 – November 2023) with AIS vessel tracking data. Each 5-second sample is labeled with its vessel class and 17 AIS metadata fields. Unlike earlier ONC-based datasets, every split keeps each vessel in a single partition and groups background audio by day, so test accuracy reflects performance on ships the model has never heard.
+  cta_section:
+    paragraphs:
+      - >-
+        <strong>The paper</strong> describes the dataset in more detail and includes results with and without data leakage, ablations on vessel diversity vs. audio duration, a metadata analysis, and additional baseline results.
+    buttons:
+      - label: Read the paper
+        url: "https://arxiv.org/pdf/2609.13659"
+        target: _blank
+        style: primary
+
   stats:
     - value: "3,437"
       label: Hours of ship & background audio
