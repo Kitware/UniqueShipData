@@ -11,7 +11,7 @@ brand:
 cta:
   button:
     label: Get the data
-    url: "#request"
+    url: "#releases"
 
 # These links populate both the homepage navigation tiles and fixed header.
 # Always quote URLs beginning with # because YAML treats # as a comment.
