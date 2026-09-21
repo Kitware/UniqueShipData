@@ -1778,6 +1778,11 @@ section[id] {
   text-decoration-line: underline;
 }
 
+.\!link {
+  cursor: pointer !important;
+  text-decoration-line: underline !important;
+}
+
 .menu {
   display: flex;
   flex-direction: column;
@@ -2499,9 +2504,19 @@ section[id] {
   outline-offset: 2px;
 }
 
+.\!link:focus {
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+
 .link:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
+}
+
+.\!link:focus-visible {
+  outline: 2px solid currentColor !important;
+  outline-offset: 2px !important;
 }
 
 .loading {
