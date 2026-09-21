@@ -37,8 +37,15 @@ layout: default
       {% endif %}
     </div>
   </div>
+
   <nav id="section-navigation" class="absolute inset-x-0 bottom-0 border-b border-base-300 bg-white text-base-content shadow-[0_-8px_30px_rgba(3,21,41,0.08)]" aria-label="Page sections">
-    <div class="site-container flex snap-x snap-mandatory overflow-x-auto px-0 md:grid md:grid-cols-5 md:overflow-visible">
+    
+    {% assign navigation_count = site.data.site.navigation.size %}
+
+    <div
+      class="site-container flex snap-x snap-mandatory overflow-x-auto px-0 md:grid md:grid-cols-[repeat(var(--navigation-count),minmax(0,1fr))] md:overflow-visible"
+      style="--navigation-count: {{ navigation_count }};"
+    >
       {% for item in site.data.site.navigation %}
         <a class="group flex min-w-[190px] snap-start items-center justify-between border-r border-base-300 px-6 py-7 first:border-l md:min-w-0" href="{{ item.url }}">
           <span>
