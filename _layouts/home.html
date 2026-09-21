@@ -128,7 +128,7 @@ layout: default
     {% endif %}
     <h2 class="section-title">{{ page.releases.headline | escape }}</h2>
     {% if page.releases.text %}
-      <p class="mt-5 max-w-2xl text-base-content/65">{{ page.releases.text | escape }}</p>
+      <p class="mt-5 max-w-2xl text-base-content/65">{{ page.releases.text }}</p>
     {% endif %}
     {% if page.releases.items %}
       <div class="mt-12 space-y-10">
@@ -298,19 +298,19 @@ layout: default
 </section>
 {% endif %}
 
-<section id="request" class="bg-gradient-to-r from-navy-950 to-navy-800 text-white">
+<section id="inquiries" class="bg-gradient-to-r from-navy-950 to-navy-800 text-white">
   <div class="mx-auto grid w-full max-w-5xl gap-12 px-6 py-20 md:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16 lg:px-8">
     <div>
-      {% if page.request.subheadline %}
-        <p class="eyebrow !mb-3 !text-sky-300">{{ page.request.subheadline | escape }}</p>
+      {% if page.inquiries.subheadline %}
+        <p class="eyebrow !mb-3 !text-sky-300">{{ page.inquiries.subheadline | escape }}</p>
       {% endif %}
-      <h2 class="text-3xl font-bold tracking-tight">{{ page.request.headline | escape }}</h2>
-      {% if page.request.text %}
-        <p class="mt-5 max-w-md text-sm leading-6 text-white/65">{{ page.request.text | escape }}</p>
+      <h2 class="text-3xl font-bold tracking-tight">{{ page.inquiries.headline | escape }}</h2>
+      {% if page.inquiries.text %}
+        <p class="mt-5 max-w-md text-sm leading-6 text-white/65">{{ page.inquiries.text }}</p>
       {% endif %}
-      {% if page.request.benefits %}
+      {% if page.inquiries.benefits %}
       <ul class="mt-7 space-y-3 border-t border-white/10 pt-6 text-xs text-white/70">
-        {% for benefit in page.request.benefits %}
+        {% for benefit in page.inquiries.benefits %}
           <li class="flex items-center gap-3">
             <span class="flex size-4 shrink-0 items-center justify-center rounded-full bg-signal/15 text-[0.6rem] font-bold text-signal" aria-hidden="true">✓</span>
             <span>{{ benefit | escape }}</span>
@@ -320,7 +320,7 @@ layout: default
       {% endif %}
     </div>
 
-    {% assign form = page.request.form %}
+    {% assign form = page.inquiries.form %}
 
     <div data-form-container>
       <form

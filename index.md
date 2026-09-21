@@ -137,24 +137,23 @@ leaderboards:
     rows: 4
 
 # ==================================================
-# REQUEST FORM
+# INQUIRY FORM
 # ==================================================
-request:
-  subheadline: Data access
-  headline: Request the dataset
+inquiries:
+  subheadline: Inquiries
+  headline: Need additional information or a different split?
   text: >-
-    Datasets are distributed to named researchers under CC BY 4.0. Tell us who you are and what you plan to build, and we'll send signed download links plus the matching annotation and evaluation packages.
+    Current dataset splits are available to <a href="#releases" class="text-primary hover:underline">download directly</a> — no request or approval is required. Use this form if you have questions, need additional information, or would like to request a split that is not currently available.
   benefits:
-    - Clear licensing and use requirements
-    - Versioned bundles and documentation
-    - A defined path for support questions
+    - Ask questions about the data or documentation
+    - Request additional or specialized dataset splits
   form:
     # Get "action" by inspecting your google form, searching for "action"
     # and then copy/pasting the URL (should end in "formResponse").
 
     action: "https://docs.google.com/forms/u/0/d/e/1FAIpQLScgdYqByeXFuj-dDJ-7_McmpmoaArhqkgZZsilMZhcHieopAA/formResponse"
 
-    submit_label: Request download
+    submit_label: Submit inquiry
     submitting_label: Submitting…
     error_message: We could not send your request. Check your connection and try again.
 

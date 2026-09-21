@@ -3536,10 +3536,6 @@ section[id] {
   row-gap: 1rem;
 }
 
-.gap-y-6 {
-  row-gap: 1.5rem;
-}
-
 .gap-y-8 {
   row-gap: 2rem;
 }
@@ -3804,10 +3800,6 @@ section[id] {
   padding-top: 2.5rem;
 }
 
-.pt-4 {
-  padding-top: 1rem;
-}
-
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -3924,6 +3916,10 @@ section[id] {
   line-height: 1.25;
 }
 
+.tracking-\[0\.12em\] {
+  letter-spacing: 0.12em;
+}
+
 .tracking-\[0\.14em\] {
   letter-spacing: 0.14em;
 }
@@ -3946,10 +3942,6 @@ section[id] {
 
 .tracking-tight {
   letter-spacing: -0.025em;
-}
-
-.tracking-\[0\.12em\] {
-  letter-spacing: 0.12em;
 }
 
 .\!text-sky-300 {
@@ -4057,6 +4049,10 @@ section[id] {
 
 .text-white\/75 {
   color: rgb(255 255 255 / 0.75);
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .opacity-0 {
@@ -4171,6 +4167,10 @@ section[id] {
 .hover\:text-navy-950:hover {
   --tw-text-opacity: 1;
   color: rgb(3 21 41 / var(--tw-text-opacity, 1));
+}
+
+.hover\:underline:hover {
+  text-decoration-line: underline;
 }
 
 .focus\:border-signal:focus {

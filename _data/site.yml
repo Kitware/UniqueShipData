@@ -24,8 +24,8 @@ navigation:
     url: "#releases"
   - label: Leaderboard
     url: "#leaderboards"
-  - label: Access
-    url: "#request"
+  - label: Inquiries
+    url: "#inquiries"
   - label: Citation
     url: "#citation"
 
