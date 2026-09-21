@@ -18,11 +18,13 @@ cta:
 navigation:
   - label: Overview
     url: "#overview"
-  - label: The difference
+  - label: Difference
     url: "#difference"
   - label: Releases
     url: "#releases"
-  - label: Request access
+  - label: Leaderboard
+    url: "#leaderboards"
+  - label: Access
     url: "#request"
   - label: Citation
     url: "#citation"
