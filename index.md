@@ -50,7 +50,7 @@ overview:
       label: Unique vessels
     - value: "11"
       label: Vessel classes
-    - value: "2"
+    - value: "2.5M"
       label: 5-second recordings
 
 # ==================================================
