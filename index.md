@@ -83,8 +83,8 @@ releases:
   text: All splits are vessel-disjoint and include per-sample AIS metadata. Samples are 5-second clips at 20 kHz; full-length recordings are available through the codebase.
   items:
     - title: 5 Class - Balanced
-      image: "/assets/images/release-coastal-placeholder.svg"
-      image_alt: Placeholder
+      image: "/assets/images/5shiptypes.png"
+      image_alt: Aerial view of five vessel classes tracked in open water
       description: Contains the main 5 classes (Tug/Tow, Tanker, Passengership, Cargo) and balances the total audio for each class such that they are equal. Current version = 1.0
       size: "89 GB (Unzipped), 59 GB (Zipped)"
       views: 213h, 3175 vessels, 5 classes
@@ -99,8 +99,8 @@ releases:
           target: _blank
           style: primary
     - title: 12 Class - 5 Hours Each
-      image: "/assets/images/release-coastal-placeholder.svg"
-      image_alt: Placeholder
+      image: "/assets/images/moreshiptypes.png"
+      image_alt: Diverse vessels tracked in a busy coastal shipping channel
       description: Contains all ship classes and balances the total audio such that it is 5 hours each class. Current version = 1.0
       size: "10 GB (Unzipped), 7 GB (Zipped)"
       views: 60h, 4218 vessels, 12 classes

@@ -1,4 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
-  <title id="title">Harbor activity placeholder</title><desc id="desc">Abstract underwater scene with a school of fish and tracking boxes.</desc>
-  <defs><linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#15869a"/><stop offset="1" stop-color="#064c5b"/></linearGradient></defs><rect width="640" height="360" fill="url(#water)"/><g fill="#cbe67c" opacity=".75"><path d="M100 100l26-10 24 10-24 10z"/><path d="M220 155l32-12 28 12-28 12z"/><path d="M410 95l26-10 24 10-24 10z"/><path d="M500 220l34-13 30 13-30 13z"/><path d="M325 255l28-10 25 10-25 10z"/></g><g fill="none" stroke="#8be24c" stroke-width="2" opacity=".8"><rect x="75" y="70" width="105" height="72"/><rect x="195" y="120" width="115" height="85"/><rect x="382" y="60" width="110" height="75"/><rect x="470" y="180" width="125" height="92"/></g>
-</svg>
