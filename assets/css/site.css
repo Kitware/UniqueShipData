@@ -3908,10 +3908,6 @@ section[id] {
   line-height: 1.5;
 }
 
-.leading-relaxed {
-  line-height: 1.625;
-}
-
 .leading-tight {
   line-height: 1.25;
 }
@@ -4297,6 +4293,10 @@ section[id] {
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
+  }
+
+  .md\:leading-relaxed {
+    line-height: 1.625;
   }
 }
 
