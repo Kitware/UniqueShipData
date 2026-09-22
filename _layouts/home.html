@@ -1,0 +1,533 @@
+---
+layout: default
+---
+
+<section id="top" class="relative flex min-h-screen flex-col overflow-hidden bg-navy-950 bg-cover bg-center text-white" style="background-image:linear-gradient(90deg,rgba(3, 21, 41, 0.7) 0%,rgba(6, 40, 71, 0.65) 52%,rgba(7, 60, 104, 0.55) 100%),url('{{ page.hero.background_image | relative_url }}');">
+  <div class="relative z-20 shrink-0">
+    <div class="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-8 px-6 lg:px-8">
+      <a href="#top" class="block shrink-0">
+        <img
+          src="{{ site.data.site.brand.logo.src_reversed | relative_url }}"
+          alt="{{ site.data.site.brand.logo.alt | escape }}"
+          class="h-8 w-auto"
+        >
+      </a>
+      <a class="btn btn-primary btn-sm shrink-0 whitespace-nowrap rounded-none" href="{{ site.data.site.cta.button.url }}">{{ site.data.site.cta.button.label | escape }}</a>
+    </div>
+  </div>
+  <div class="site-container flex flex-1 items-center pb-40 pt-10 md:pb-36">
+    <div class="max-w-xl">
+      {% if page.hero.subheadline %}<p class="eyebrow !text-sky-300">{{ page.hero.subheadline }}</p>{% endif %}
+      <h1 class="text-4xl leading-relaxed tracking-tight md:text-5xl">{{ page.hero.headline }}</h1>
+      {% if page.hero.text %}<p class="mt-6 text-lg leading-8 text-white/75">{{ page.hero.text }}</p>{% endif %}
+      {% if page.hero.buttons %}
+        <div class="mt-9 flex flex-wrap gap-3">
+          {% for button in page.hero.buttons %}
+            {% if button.style == "primary" %}
+              <a class="btn btn-primary rounded-none" href="{{ button.url }}">
+                {{ button.label | escape }}
+              </a>
+            {% else %}
+            <a class="btn btn-outline rounded-none border-white/50 text-white hover:border-white hover:bg-white hover:text-navy-950" href="{{ button.url }}">
+              {{ button.label | escape }}
+            </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <nav id="section-navigation" class="absolute inset-x-0 bottom-0 border-b border-base-300 bg-white text-base-content shadow-[0_-8px_30px_rgba(3,21,41,0.08)]" aria-label="Page sections">
+    
+    {% assign navigation_count = site.data.site.navigation.size %}
+
+    <div
+      class="site-container flex snap-x snap-mandatory overflow-x-auto px-0 md:grid md:grid-cols-[repeat(var(--navigation-count),minmax(0,1fr))] md:overflow-visible"
+      style="--navigation-count: {{ navigation_count }};"
+    >
+      {% for item in site.data.site.navigation %}
+        <a class="group flex min-w-[190px] snap-start items-center justify-between border-r border-base-300 px-6 py-7 first:border-l md:min-w-0" href="{{ item.url }}">
+          <span>
+            <span class="block text-[0.65rem] font-bold uppercase tracking-[0.18em] text-secondary">0{{ forloop.index }}</span>
+            <span class="mt-2 block text-sm font-bold text-navy-950 transition-colors group-hover:text-secondary">{{ item.label | escape }}</span>
+          </span>
+          <span class="text-lg text-base-content/30 transition group-hover:translate-x-1 group-hover:text-secondary" aria-hidden="true">→</span>
+        </a>
+      {% endfor %}
+    </div>
+  </nav>
+</section>
+
+<section id="overview" class="section-pad">
+  <div class="site-container grid gap-14 lg:grid-cols-[1.3fr_1fr] lg:items-start">
+    <div>
+      {% if page.overview.subheadline %}
+        <p class="eyebrow">{{ page.overview.subheadline | escape }}</p>
+      {% endif %}
+      <h2 class="section-title max-w-2xl">{{ page.overview.headline | escape }}</h2>
+      {% if page.overview.paragraphs %}
+        <div class="prose mt-7 max-w-none text-base-content/70">
+          {% for paragraph in page.overview.paragraphs %}
+            {{ paragraph | markdownify }}
+          {% endfor %}
+          {% if page.overview.cta_section %}
+            <div class="bg-base-200 px-6 py-5 !pt-2">
+              {% for paragraph in page.overview.cta_section.paragraphs %}
+                {{ paragraph | markdownify }}
+              {% endfor %}
+              {% if page.overview.cta_section.buttons %}
+                <div class="mt-6 flex flex-wrap gap-3">
+                  {% for button in page.overview.cta_section.buttons %}
+                    <a class="btn btn-sm rounded-none{% if button.style == 'primary' %} btn-primary{% else %} btn-outline{% endif %}" href="{{ button.url }}" target="{{ button.target }}">
+                      {{ button.label | escape }}
+                    </a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+    {% if page.overview.stats %}
+      <dl class="grid grid-cols-2 gap-x-8 gap-y-8 pt-8">
+        {% for stat in page.overview.stats %}
+          <div class="border-t border-base-300 pt-6">
+            <dd class="order-first mb-1 text-4xl font-light text-navy-950">{{ stat.value | escape }}</dd>
+            <dt class="text-xs uppercase tracking-[0.12em] text-signal">{{ stat.label | escape }}</dt>
+          </div>
+        {% endfor %}
+      </dl>
+    {% endif %}
+  </div>
+</section>
+
+<section id="difference" class="section-pad bg-base-200"><div class="site-container">
+  {% if page.difference.subheadline %}
+    <p class="eyebrow">{{ page.difference.subheadline | escape }}</p>
+  {% endif %}
+  <h2 class="section-title max-w-2xl">{{ page.difference.headline | escape }}</h2>
+  {% if page.difference.items %}
+    <div class="mt-12 grid border-l border-t border-base-300 md:grid-cols-2 lg:grid-cols-3">
+      {% for item in page.difference.items %}
+        <article class="border-b border-r border-base-300 bg-white p-7">
+          <span class="text-xs text-signal">0{{ forloop.index }}</span>
+          <h3 class="mt-4 font-bold text-navy-950">{{ item.title | escape }}</h3>
+          <p class="mt-3 text-sm leading-6 text-base-content/65">{{ item.text | escape }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div></section>
+
+<section id="releases" class="section-pad">
+  <div class="site-container">
+    {% if page.releases.subheadline %}
+      <p class="eyebrow">{{ page.releases.subheadline | escape }}</p>
+    {% endif %}
+    <h2 class="section-title">{{ page.releases.headline | escape }}</h2>
+    {% if page.releases.text %}
+      <p class="mt-5 max-w-2xl text-base-content/65">{{ page.releases.text }}</p>
+    {% endif %}
+    {% if page.releases.items %}
+      <div class="mt-12 space-y-10">
+        {% for release in page.releases.items %}
+          <article class="grid gap-7 md:grid-cols-[360px_1fr] md:items-center">
+            {% if release.image %}
+              <img class="aspect-[16/9] h-full w-full object-cover" src="{{ release.image | relative_url }}" alt="{{ release.image_alt | escape }}" width="640" height="360" loading="lazy">
+            {% endif %}
+            <div>
+              <h3 class="text-xl font-bold text-navy-950">{{ release.title | escape }}</h3>
+              <p class="mt-3 text-sm leading-6 text-base-content/65">{{ release.description | escape }}</p>
+              <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-base-content/55">
+                <span>
+                  <i class="ri-file-line text-primary"></i>
+                  {{ release.size | escape }}
+                </span>
+                <span>
+                  <i class="ri-vidicon-line text-primary"></i>
+                  {{ release.views | escape }}
+                </span>
+                <span>
+                  <i class="ri-box-3-line text-primary"></i>
+                  {{ release.date | escape }}
+                </span>
+              </div>
+              {% if release.buttons %}
+                <div class="mt-6 flex flex-wrap gap-3">
+                  {% for button in release.buttons %}
+                    <a class="btn btn-sm rounded-none {% if button.style == 'primary' %}btn-primary{% else %}btn-outline{% endif %}" href="{{ button.url }}" target="{{ button.target }}">
+                      {{ button.label | escape }}
+                    </a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% if page.leaderboards %}
+<section
+  id="leaderboards"
+  class="section-pad bg-base-200"
+>
+  <div class="site-container">
+    <div class="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-16">
+
+      <!-- Section introduction -->
+      <div>
+        {% if page.leaderboards.subheadline %}
+          <p class="eyebrow">
+            {{ page.leaderboards.subheadline | escape }}
+          </p>
+        {% endif %}
+
+        <div class="flex flex-wrap items-center gap-3">
+          <h2 class="section-title">
+            {{ page.leaderboards.headline | escape }}
+          </h2>
+
+          {% if page.leaderboards.status %}
+            <span class="badge badge-primary badge-outline rounded-none text-[0.6rem] font-bold uppercase tracking-[0.14em]">
+              {{ page.leaderboards.status | escape }}
+            </span>
+          {% endif %}
+        </div>
+
+        {% if page.leaderboards.text %}
+          <p class="mt-5 max-w-lg text-sm leading-6 text-base-content/65">
+            {{ page.leaderboards.text | escape }}
+          </p>
+        {% endif %}
+
+        <div class="mt-7 flex items-start gap-3 border-t border-base-300 pt-6">
+          <i
+            class="ri-trophy-line mt-0.5 text-xl text-signal"
+            aria-hidden="true"
+          ></i>
+
+          <p class="max-w-md text-xs leading-5 text-base-content/55">
+            Evaluation criteria and submission instructions are
+            currently being developed.
+          </p>
+        </div>
+      </div>
+
+      <!-- Leaderboard preview -->
+      <div class="relative overflow-hidden border border-base-300 bg-white">
+        <div class="flex items-center justify-between border-b border-base-300 px-5 py-4">
+          <div class="flex items-center gap-2">
+            <i
+              class="ri-bar-chart-box-line text-lg text-ocean"
+              aria-hidden="true"
+            ></i>
+
+            <span class="text-xs font-bold uppercase tracking-[0.14em] text-navy-950">
+              Results preview
+            </span>
+          </div>
+
+          <span class="inline-flex items-center gap-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-base-content/40">
+            <span class="size-1.5 rounded-full bg-signal"></span>
+            In development
+          </span>
+        </div>
+
+        <div class="overflow-x-auto" aria-hidden="true">
+          <table class="w-full min-w-[580px] border-collapse">
+            <thead>
+              <tr class="border-b border-base-300 bg-base-200/60">
+                {% for column in page.leaderboards.preview.columns %}
+                  <th class="px-5 py-3 text-left text-[0.6rem] font-bold uppercase tracking-[0.14em] text-base-content/45">
+                    {{ column | escape }}
+                  </th>
+                {% endfor %}
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for row in (1..page.leaderboards.preview.rows) %}
+                <tr class="border-b border-base-300 last:border-b-0">
+                  <td class="px-5 py-4">
+                    <span class="block h-3 w-5 animate-pulse bg-base-300"></span>
+                  </td>
+
+                  <td class="px-5 py-4">
+                    <span class="block h-3 w-28 animate-pulse bg-base-300"></span>
+                  </td>
+
+                  <td class="px-5 py-4">
+                    <span class="block h-3 w-20 animate-pulse bg-base-300"></span>
+                  </td>
+
+                  <td class="px-5 py-4">
+                    <span class="block h-3 w-12 animate-pulse bg-base-300"></span>
+                  </td>
+
+                  <td class="px-5 py-4">
+                    <span class="block h-3 w-16 animate-pulse bg-base-300"></span>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Overlay keeps the preview from looking interactive -->
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 top-[53px] flex items-center justify-center bg-white/45 backdrop-blur-[1px]">
+          <div class="border border-base-300 bg-white px-6 py-4 text-center shadow-sm">
+            <i
+              class="ri-trophy-line text-2xl text-signal"
+              aria-hidden="true"
+            ></i>
+
+            <p class="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-navy-950">
+              Rankings coming soon
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section id="inquiries" class="bg-gradient-to-r from-navy-950 to-navy-800 text-white">
+  <div class="mx-auto grid w-full max-w-5xl gap-12 px-6 py-20 md:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16 lg:px-8">
+    <div>
+      {% if page.inquiries.subheadline %}
+        <p class="eyebrow !mb-3 !text-sky-300">{{ page.inquiries.subheadline | escape }}</p>
+      {% endif %}
+      <h2 class="text-3xl font-bold tracking-tight">{{ page.inquiries.headline | escape }}</h2>
+      {% if page.inquiries.text %}
+        <p class="mt-5 max-w-md text-sm leading-6 text-white/65">{{ page.inquiries.text }}</p>
+      {% endif %}
+      {% if page.inquiries.benefits %}
+      <ul class="mt-7 space-y-3 border-t border-white/10 pt-6 text-xs text-white/70">
+        {% for benefit in page.inquiries.benefits %}
+          <li class="flex items-center gap-3">
+            <span class="flex size-4 shrink-0 items-center justify-center rounded-full bg-signal/15 text-[0.6rem] font-bold text-signal" aria-hidden="true">✓</span>
+            <span>{{ benefit | escape }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+
+    {% assign form = page.inquiries.form %}
+
+    <div data-form-container>
+      <form
+        class="grid gap-x-4 gap-y-4 rounded-lg border border-white/10 bg-[#020d1d]/90 p-6 shadow-panel sm:grid-cols-2"
+        action="{{ form.action | escape }}"
+        method="post"
+        accept-charset="UTF-8"
+        data-request-form
+      >
+        {% for field in form.fields %}
+          {% assign field_id = "request-field-" | append: forloop.index %}
+
+          {% if field.width == "half" %}
+            {% assign field_width = "" %}
+          {% else %}
+            {% assign field_width = "sm:col-span-2" %}
+          {% endif %}
+
+          {% if field.type == "checkbox" %}
+
+            <label
+              class="flex cursor-pointer items-start gap-2 {{ field_width }}"
+              for="{{ field_id }}"
+            >
+              <input
+                id="{{ field_id }}"
+                type="checkbox"
+                class="checkbox checkbox-primary checkbox-xs mt-0.5 rounded-sm"
+                name="{{ field.name | escape }}"
+                value="{{ field.value | escape }}"
+                {% if field.required %}required{% endif %}
+              >
+
+              <span class="text-[0.65rem] leading-5 text-white/60">
+                {{ field.label | escape }}
+
+                {% if field.required %}
+                  <span class="text-primary" aria-hidden="true">*</span>
+                {% endif %}
+              </span>
+            </label>
+
+          {% else %}
+
+            <label
+              class="block {{ field_width }}"
+              for="{{ field_id }}"
+            >
+              <span class="mb-1.5 block text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-white/55">
+                {{ field.label | escape }}
+
+                {% if field.required %}
+                  <span class="text-primary" aria-hidden="true">*</span>
+                {% endif %}
+              </span>
+
+              {% case field.type %}
+
+                {% when "textarea" %}
+
+                  <textarea
+                    id="{{ field_id }}"
+                    class="textarea textarea-bordered h-24 w-full resize-y rounded-none border-white/15 bg-[#06172a] text-xs leading-5 text-white placeholder:text-white/25 focus:border-signal"
+                    name="{{ field.name | escape }}"
+                    {% if field.placeholder %}
+                      placeholder="{{ field.placeholder | escape }}"
+                    {% endif %}
+                    {% if field.required %}required{% endif %}
+                  ></textarea>
+
+                {% when "select" %}
+
+                  <select
+                    id="{{ field_id }}"
+                    class="select select-bordered select-sm w-full rounded-none border-white/15 bg-[#06172a] text-xs text-white focus:border-signal"
+                    name="{{ field.name | escape }}"
+                    {% if field.required %}required{% endif %}
+                  >
+                    {% if field.placeholder %}
+                      <option value="" selected disabled>
+                        {{ field.placeholder | escape }}
+                      </option>
+                    {% endif %}
+
+                    {% for option in field.options %}
+                      {% assign option_label = option.label | default: option %}
+                      {% assign option_value = option.value | default: option_label %}
+
+                      <option value="{{ option_value | escape }}">
+                        {{ option_label | escape }}
+                      </option>
+                    {% endfor %}
+                  </select>
+
+                {% else %}
+
+                  <input
+                    id="{{ field_id }}"
+                    class="input input-bordered input-sm w-full rounded-none border-white/15 bg-[#06172a] text-xs text-white placeholder:text-white/25 focus:border-signal"
+                    type="{{ field.type | default: 'text' | escape }}"
+                    name="{{ field.name | escape }}"
+                    {% if field.placeholder %}
+                      placeholder="{{ field.placeholder | escape }}"
+                    {% endif %}
+                    {% if field.autocomplete %}
+                      autocomplete="{{ field.autocomplete | escape }}"
+                    {% endif %}
+                    {% if field.required %}required{% endif %}
+                  >
+
+              {% endcase %}
+            </label>
+
+          {% endif %}
+        {% endfor %}
+
+        <p
+          class="hidden text-sm text-error sm:col-span-2"
+          data-form-error
+          role="alert"
+        >
+          {{ form.error_message
+            | default: "Something went wrong. Please try again."
+            | escape
+          }}
+        </p>
+
+        <button
+          class="btn btn-primary btn-sm justify-self-start rounded-none sm:col-span-2"
+          type="submit"
+          data-submit-button
+          data-default-label="{{ form.submit_label | escape }}"
+          data-submitting-label="{{ form.submitting_label | default: 'Submitting…' | escape }}"
+        >
+          <span data-button-label>
+            {{ form.submit_label | escape }}
+          </span>
+
+          <span
+            class="loading loading-spinner loading-xs hidden"
+            data-button-spinner
+            aria-hidden="true"
+          ></span>
+        </button>
+      </form>
+
+      <div
+        class="hidden rounded-lg border border-white/10 bg-[#020d1d]/90 p-8 shadow-panel"
+        data-form-success
+        role="status"
+        tabindex="-1"
+      >
+        <div class="flex size-10 items-center justify-center rounded-full bg-primary/15 text-primary">
+          <i
+            class="ri-check-line text-xl"
+            aria-hidden="true"
+          ></i>
+        </div>
+
+        <p class="mt-6 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-primary">
+          {{ form.success.eyebrow | escape }}
+        </p>
+
+        <h3 class="mt-2 text-2xl font-bold text-white">
+          {{ form.success.headline | escape }}
+        </h3>
+
+        <p class="mt-3 max-w-md text-sm leading-6 text-white/60">
+          {{ form.success.text | escape }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="citation" class="section-pad">
+  <div class="site-container">
+    {% if page.citation.subheadline %}
+      <p class="eyebrow">{{ page.citation.subheadline | escape }}</p>
+    {% endif %}
+    <h2 class="section-title">{{ page.citation.headline | escape }}</h2>
+    {% if page.citation.text %}
+      <p class="mt-5 max-w-2xl text-base-content/65">{{ page.citation.text | escape }}</p>
+    {% endif %}
+    <div class="relative mt-8">
+      <pre class="overflow-x-auto bg-base-200 p-7 pr-16 text-xs leading-6"><code data-copy-source>{{ page.citation.code | escape }}</code></pre>
+      <button
+        type="button"
+        class="btn btn-square btn-ghost btn-sm absolute right-3 top-3"
+        data-copy-button
+        aria-label="Copy citation"
+        title="Copy citation"
+      >
+        <i
+          class="ri-file-copy-line text-lg transition-transform"
+          data-copy-icon
+          aria-hidden="true"
+        ></i>
+        <span class="sr-only" data-copy-status aria-live="polite"></span>
+      </button>
+    </div>
+    <div class="mt-8 flex flex-col gap-5 bg-secondary p-6 text-white sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <h3 class="font-bold">{{ page.citation.contact.headline | escape }}</h3>
+        <p class="mt-1 text-sm text-white/75">{{ page.citation.contact.text | escape }}</p>
+      </div>
+      <a class="btn btn-primary btn-sm shrink-0 rounded-none" href="{{ page.citation.contact.url }}" target="_blank">{{ page.citation.contact.button_label | escape }}</a>
+    </div>
+  </div>
+</section>

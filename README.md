@@ -1,8 +1,10 @@
-# MARINA coming-soon page
+# MARINA Jekyll theme starter
 
-A minimal Jekyll, Tailwind CSS, and daisyUI page using the supplied maritime image.
+A one-page Jekyll starter based on the supplied dataset landing-page design. It uses Tailwind CSS 3 and daisyUI 4. Editors manage homepage content from the clearly commented front matter in `index.md`, while site-wide header, navigation, and footer settings live in `_data/site.yml`.
 
 ## Run locally
+
+Requirements: Ruby 3+, Bundler, and Node 18+.
 
 ```bash
 bundle install
@@ -10,12 +12,24 @@ npm install
 npm run dev
 ```
 
-Then open `http://127.0.0.1:4000`.
+Open `http://127.0.0.1:4000` or `http://localhost:4000`.
 
-## Edit content
+## Production build
 
-- `index.md` controls the background image, eyebrow, headline, body text, and optional button.
-- `_data/site.yml` controls the brand name and footer organization.
-- Replace `assets/images/coming-soon-background.jpg` or update `background_image` in `index.md`.
+```bash
+npm run build
+```
 
-Remove the complete `button:` block from `index.md` if the page should not have a call to action.
+The generated site will be in `_site/`.
+
+## Editing content
+
+- `index.md` — the single content-editing file for the homepage
+- `_data/site.yml` — site-wide branding, navigation, header CTA, and footer organization
+- `_layouts/home.html` — protected page structure and Liquid templates
+- `tailwind.config.js` — brand colors and the daisyUI theme
+- `assets/css/tailwind.css` — reusable Tailwind component classes
+- `_includes/header.html` and `_includes/footer.html` — shared chrome
+- `assets/js/navigation.js` — reveals the separate fixed navigation after the hero tiles scroll away
+
+Keep URLs beginning with `#` in quotation marks, for example `url: "#overview"`. For button styles, use only `primary` or `outline`.

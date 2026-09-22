@@ -14,7 +14,7 @@ module.exports = {
           900: "#062847",
           800: "#073c68"
         },
-        signal: "#4cc43b",
+        signal: "#3eae2b",
         ocean: "#0875d1"
       },
       fontFamily: {
@@ -30,7 +30,7 @@ module.exports = {
     themes: [
       {
         marina: {
-          primary: "#4cc43b",
+          primary: "#3eae2b",
           "primary-content": "#031529",
           secondary: "#0875d1",
           "secondary-content": "#ffffff",

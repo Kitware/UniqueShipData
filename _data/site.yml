@@ -1,5 +1,38 @@
+# ==================================================
+# SITE-WIDE BRANDING, CALL TO ACTION, AND NAVIGATION
+# ==================================================
+
 brand:
-  name: MARINA
+  logo:
+    src_reversed: "/assets/images/logo-white.svg"
+    src: "/assets/images/logo.svg"
+    alt: MARINA
+
+cta:
+  button:
+    label: Get the data
+    url: "#releases"
+
+# These links populate both the homepage navigation tiles and fixed header.
+# Always quote URLs beginning with # because YAML treats # as a comment.
+navigation:
+  - label: Overview
+    url: "#overview"
+  - label: Difference
+    url: "#difference"
+  - label: Releases
+    url: "#releases"
+  - label: Leaderboard
+    url: "#leaderboards"
+  - label: Inquiries
+    url: "#inquiries"
+  - label: Citation
+    url: "#citation"
 
 footer:
+  disclaimer: >-
+    Funded by DARPA under MARINA program, contract W912CG-24-C-0020<br>
+    Disclaimer (DARPA)<br>
+    Data owned by Ocean Networks Canada and available under CC-BY 4.0<br>
+    <a class="text-secondary" href="https://www.oceannetworks.ca/data/data-policy/">https://www.oceannetworks.ca/data/data-policy/</a>
   organization: Kitware, Inc.

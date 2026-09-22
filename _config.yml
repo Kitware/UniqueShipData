@@ -16,4 +16,4 @@ defaults:
   - scope:
       path: ""
     values:
-      layout: coming-soon
+      layout: default

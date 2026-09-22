@@ -1,5 +1,5 @@
 {
-  "name": "marina-coming-soon",
+  "name": "darpa-marina-jekyll",
   "private": true,
   "scripts": {
     "css:build": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/site.css --minify",
@@ -12,7 +12,6 @@
     "@tailwindcss/typography": "^0.5.16",
     "concurrently": "^9.1.2",
     "daisyui": "^4.12.24",
-    "remixicon": "^4.9.1",
     "tailwindcss": "^3.4.17"
   }
 }
