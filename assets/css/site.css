@@ -4051,10 +4051,6 @@ section[id] {
   color: rgb(255 255 255 / 0.75);
 }
 
-.underline {
-  text-decoration-line: underline;
-}
-
 .opacity-0 {
   opacity: 0;
 }
