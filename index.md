@@ -80,7 +80,7 @@ difference:
 releases:
   subheadline: Data releases
   headline: Current dataset splits
-  text: All splits are vessel-disjoint and include per-sample AIS metadata. Samples are 5-second clips at 20 kHz; full-length recordings are available through the codebase.
+  text: All splits are vessel-disjoint and include per-sample AIS metadata. Samples are 5-second clips at 20 kHz; full-length recordings are available through the codebase. *Request Google Drive permission to access the current splits*.
   items:
     - title: 5 Class - Balanced
       image: "/assets/images/5shiptypes.png"
