@@ -80,13 +80,17 @@ difference:
 releases:
   subheadline: Data releases
   headline: Current dataset splits
-  text: All splits are vessel-disjoint and include per-sample AIS metadata. Samples are 5-second clips at 20 kHz; full-length recordings are available through the codebase. *Request Google Drive permission to access the current splits*.
+  text: All splits are vessel-disjoint and include per-sample AIS metadata. Samples are 5-second clips at 20 kHz; full-length recordings are available through the codebase.  Each folder contains several zipped folders, which all must be unzipped. The labels and metadata for the datasets are given in the CSV files, where each row provides the relative path of the audio/spectrogram and its corresponding metadata/label. Please follow the leakproof folds for best standardization and benchmarking across multiple models.
+  cta_section:
+    paragraphs:
+      - >-
+        Data currently provided through Google Drive links, and please <strong>request Google Drive permission to access the current splits.</strong> The larger splits ("Main 5, Unbalanced") will be uploaded soon, with links to AWS. Please feel free to message if currently waiting.
   items:
     - title: 5 Class - Balanced
       image: "/assets/images/5shiptypes.png"
       image_alt: Aerial view of five vessel classes tracked in open water
       description: Contains the main 5 classes (Tug/Tow, Tanker, Passengership, Cargo) and balances the total audio for each class such that they are equal. Current version = 1.0
-      size: "89 GB (Unzipped), 59 GB (Zipped)"
+      size: "92 GB (Unzipped), 64.8 GB (Zipped)"
       views: 213h, 3175 vessels, 5 classes
       date: Released September 2026
       buttons:
@@ -102,7 +106,7 @@ releases:
       image: "/assets/images/moreshiptypes.png"
       image_alt: Diverse vessels tracked in a busy coastal shipping channel
       description: Contains all ship classes and balances the total audio such that it is 5 hours each class. Current version = 1.0
-      size: "10 GB (Unzipped), 7 GB (Zipped)"
+      size: "26 GB (Unzipped), 17.8 GB (Zipped)"
       views: 60h, 4218 vessels, 12 classes
       date: Released September 2026
       buttons:

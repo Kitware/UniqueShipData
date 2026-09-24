@@ -130,6 +130,24 @@ layout: default
     {% if page.releases.text %}
       <p class="mt-5 max-w-2xl text-base-content/65">{{ page.releases.text }}</p>
     {% endif %}
+    {% if page.releases.cta_section %}
+      <div class="prose mt-7 max-w-2xl text-base-content/70">
+        <div class="bg-base-200 px-6 py-5 !pt-2">
+          {% for paragraph in page.releases.cta_section.paragraphs %}
+            {{ paragraph | markdownify }}
+          {% endfor %}
+          {% if page.releases.cta_section.buttons %}
+            <div class="mt-6 flex flex-wrap gap-3">
+              {% for button in page.releases.cta_section.buttons %}
+                <a class="btn btn-sm rounded-none{% if button.style == 'primary' %} btn-primary{% else %} btn-outline{% endif %}" href="{{ button.url }}" target="{{ button.target }}">
+                  {{ button.label | escape }}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
     {% if page.releases.items %}
       <div class="mt-12 space-y-10">
         {% for release in page.releases.items %}
