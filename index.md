@@ -80,12 +80,23 @@ difference:
 releases:
   subheadline: Data releases
   headline: Current dataset splits
-  text: All splits are vessel-disjoint and include per-sample AIS metadata. Samples are 5-second clips at 20 kHz; full-length recordings are available through the codebase.  Each folder contains several zipped folders, which all must be unzipped. The labels and metadata for the datasets are given in the CSV files, where each row provides the relative path of the audio/spectrogram and its corresponding metadata/label. Please follow the leakproof folds for best standardization and benchmarking across multiple models.
+  text: All splits are vessel-disjoint and include per-sample AIS metadata. Samples are 5-second clips at 20 kHz; full-length recordings are available through the codebase.  Each folder contains several zipped folders, which all must be unzipped. The labels and metadata for the datasets are given in the CSV files, where each row provides the relative path of the audio/spectrogram and its corresponding metadata/label. Please follow the leakproof folds for best standardization and benchmarking across multiple models. Ship data is labeled if one ship is within 2km and no other ships are within 4km. Background is labeled if no ships are within 8km.
   cta_section:
     paragraphs:
-      - >-
-        Data currently provided through Google Drive links, and please <strong>request Google Drive permission to access the current splits.</strong> The larger splits ("Main 5, Unbalanced") will be uploaded soon, with links to AWS. Please feel free to message if currently waiting.
+        Data currently provided through Google Drive links in 10GB increments. Refer to the README in each Drive folder for more details, as the smaller splits are in non-independent zips while the bigger dataset is independent zips. Since the datasets are so large, we recommend rclone as a viable option to download all the data.
   items:
+    - title: 12 Class - All Data
+      image: "/assets/images/moreshiptypes.png"
+      image_alt: Diverse vessels tracked in a busy coastal shipping channel
+      description: All data for the 12 classes and splits presented in paper. Current version = 1.0
+      size: "656 GB (Unzipped, compressed .wv), 1400 GB (Unzipped, decompressed .wav), 646 GB (Zipped)"
+      views: 3437h, 4218 vessels, 12 classes
+      date: Released September 2026
+      buttons:
+        - label: Download audio
+          url: "https://drive.google.com/drive/folders/1U3JvuzKK39Im__VbJkN7DRLdNAV2fUlN?usp=drive_link"                                 
+          target: _blank
+          style: primary
     - title: 5 Class - Balanced
       image: "/assets/images/5shiptypes.png"
       image_alt: Aerial view of five vessel classes tracked in open water
