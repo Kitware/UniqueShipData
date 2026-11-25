@@ -129,6 +129,10 @@ releases:
           url: "https://drive.google.com/drive/folders/1xOXX4dUmtSET7Utb4gfscZp1dlPoT76e?usp=drive_link"
           target: _blank
           style: primary
+        - label: View on Zenodo
+          url: "https://zenodo.org/records/24511980"
+          target: _blank
+          style: outline
 
 # ==================================================
 # LEADERBOARDS
